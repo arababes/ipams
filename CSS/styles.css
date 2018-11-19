@@ -1,0 +1,519 @@
+@font-face {
+	font-family: OpenSans-Bold;
+	src: url('./../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: brandon-grotesque-black-58a8a3e824392;
+	src: url('./../fonts/brandon-grotesque-black-58a8a3e824392.otf') format('opentype');
+}
+
+@font-face {
+	font-family: brandon-grotesque-black-58a8a3e824392;
+	src: url('./../fonts/brandon-grotesque-black-58a8a3e824392.otf') format('opentype');
+}
+
+@font-face {
+	font-family: brandon-grotesque-black-58a8a3e824392;
+	src: url('./../fonts/brandon-grotesque-black-58a8a3e824392.otf') format('opentype');
+}
+
+@font-face {
+	font-family: brandon-grotesque-regular-italic-58a8a456c4724;
+	src: url('./../fonts/brandon-grotesque-regular-italic-58a8a456c4724.otf') format('opentype');
+}
+
+@font-face {
+	font-family: OpenSans-Regular;
+	src: url('./../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat-ExtraBold;
+	src: url('./../fonts/Montserrat-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: Montserrat-Bold;
+	src: url('./../fonts/Montserrat-Bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: Montserrat-Regular;
+	src: url('./../fonts/Montserrat-Regular.otf') format('opentype');
+}
+
+html {
+	height:100%;
+
+}
+
+body {
+
+	height: 100%;
+	width: 100%;
+	overflow:hidden
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+	max-width: 280px;
+}
+
+/* Start custom styles here */
+
+.h-100 {
+	height: 100%;
+}
+
+.h-15 {
+	height: 15%;
+}
+
+.h-30 {
+	height:32%;
+}
+
+.h-40 {
+	height: 40%;
+}
+.h-50 {
+	height: 50%;
+}
+.h-60 {
+	height: 60%;
+}
+
+
+
+
+.w-100 {
+	width:100%;
+}
+
+.test {
+	background-color:lightgray;
+}
+
+.pale {
+	background-color: #F3EEEE
+}
+
+#content {
+	min-height:100%;
+	min-width: 100%;
+}
+
+.logo-text {
+	font-family: Montserrat-Bold;
+	margin-left: -4%;
+
+	
+}
+
+
+.nav-button {
+	border: none;
+	color: gray;
+}
+
+
+.nav-button:hover {
+	background-color:#e6dcdc;
+	font-family:Montserrat-Regular;
+	
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+
+
+.logo-ip {
+	font-family: Montserrat-Bold;
+	font-size: 64px;
+	margin-right: -20%;
+}
+
+.monts {
+	font-family: Montserrat-ExtraBold;
+	padding-top:50px;
+	margin-left:10px;
+	font-size:62px;
+
+}
+
+.pt-100 {
+	padding-top:100px;
+}
+
+.pt-5 {
+	padding-top:5px;
+}
+.ml-15 {
+	margin-left: 15px;
+}
+
+.mt-15{
+	margin-top: 15%;
+}
+.rounded {
+	border-radius: 40px;
+	box-sizing: border-box;
+	color: white;
+	display: block;
+	font-family: OpenSans-Regular;
+	height: 35px;
+	width: 264px;
+	letter-spacing: 1px;
+	margin: 0 auto;
+	padding: 4px;
+	text-decoration: none;
+	margin-left: 5%;
+	outline: none;
+
+}
+
+
+#login-button:hover {
+	background-color: #caa87e;
+}
+
+#login-button {
+	background-color: #BD9028;
+
+}
+#signup-button {
+	background-color: #e3c375;
+}
+#signup-button:hover {
+	background-color: #f3daac;
+}
+
+#homepic {
+	background-image:url(../Content/res/pic/homepage.png);
+	background-size:cover;
+}
+
+#record-list {
+	background-color:#220e19;
+}
+
+#record-list:hover {
+	background-color: #442c39;
+	cursor: pointer;
+}
+
+#graph-list {
+	background-color:#571c33;
+	
+
+}
+
+#graph-list:hover {
+	background-color: #673146;
+	cursor: pointer;
+}
+
+.home-button {
+	font-family:brandon-grotesque-black-58a8a3e824392;
+	color:white;
+}
+
+.login-input {
+	color: black;
+	border-color: dimgrey;
+	width: 20em;
+	font-weight: bold;
+}
+
+.record-header {
+	color:white;
+	font-family:brandon-grotesque-black-58a8a3e824392;
+}
+
+.search-input {
+	color: black;
+	border-color: dimgrey;
+	
+	font-weight: bold;
+	padding-left: 1em;
+	
+}
+
+.search-button {
+	border: none 0px !important;
+	margin-left:-13px;
+	margin-top:1em;
+	max-width:11.5em;
+	z-index:1;
+	font-family:OpenSans-Bold;
+	background-color:#e3c75e;
+	color: black !important;
+	text-align:right;
+	padding-right:2em;
+	
+
+}
+
+.search-button:hover {
+	background-color:burlywood;
+}
+
+
+.extras {
+	border: none 0px !important;
+	font-family: OpenSans-Bold;
+	margin-left: -13px;
+	margin-top: 1em;
+	
+}
+
+.delete-button {
+	background-color:#bd9028;
+	padding-left:1.5em;
+	text-align:left;
+	margin-left:.5em;
+	max-width:8em;
+}
+
+.delete-button:hover {
+	background-color:chocolate;
+	color: red;
+}
+
+.add-button {
+	background-color: #e3c75e;
+	max-width: 10em;
+	color:black
+}
+
+.add-button:hover {
+	background-color: cadetblue;
+	color:chartreuse;
+}
+
+tr{
+	height:2.85em;
+}
+
+.pagin{
+	color:white;
+	background-color:gray;
+}
+
+.mont-font {
+	font-family:Montserrat-ExtraBold;
+}
+
+#year-accomplished {
+	margin-top: 0px;
+	margin-left: .5em;
+	font-family: OpenSans-Bold;
+	color: gray;
+}
+
+.os-font {
+	font-family: OpenSans-Bold;
+
+}
+
+#edit {
+	background-color:#984d65;
+
+}
+
+#delete {
+	background-color:#aa8c98;
+}
+
+#edit:hover {
+	background-color: #a76379;
+}
+
+#delete:hover{
+	background-color: #c8aab6;
+}
+
+.mont-font-reg {
+	font-family:Montserrat-Regular;
+}
+
+.rad-button {
+	margin-top:.5em;
+	border-radius:50%; 
+	border:solid 4px;
+	height:20px;
+	width:20px;
+	outline:none;
+}
+
+#graph-download-button {
+	background-color: #984d65;
+	outline:none;
+}
+
+#graph-download-button:hover {
+	background-color: #9a5e71;
+}
+
+#generate-button {
+	background-color: #984d65;
+}
+
+#generate-button:hover {
+	background-color: #9a5e71;
+
+}
+#abstract-edit{
+
+	max-width: 95%;
+	min-width: 95%;
+	max-height: 100%; 
+	min-height: 100%;
+	background: none;
+	font-size: 1.3em;
+	text-align: justify;
+}
+
+#abstract-title{
+
+	max-width: 95%;
+	min-width: 95%;
+	max-height: 2em;
+	min-height: 2em;
+	background: none;
+	font-size: 2em;
+	text-align: justify;
+	margin-top: .1em;
+}
+
+.transparent{
+	border: solid 1px;
+	background: none;
+	outline: none;
+}
+
+.borderless{
+
+	border: none !important;
+}
+
+.sided:hover{
+	background: #C59E43;
+	cursor: pointer;
+}
+
+.sided{
+	font-weight: 800;
+	position: absolute;
+	margin-top: -3.5em;
+	margin-left: 80%;
+	width: 10em;
+	color: black;
+	border: none;
+	background: #E3C57E;
+}
+
+.delete:hover{
+	background: #AF0000;
+}
+
+.delete{
+	position: relative;
+	background: red;
+	color: white;
+	border: none;
+	width: 1.9em;
+	height: 1.9em;
+	margin-left: 30em;
+	margin-right: 0em;
+}
+
+#conference-title{
+
+	max-width: 95%;
+	min-width: 95%;
+	max-height: 4em;
+	min-height: 4em;
+	background: none;
+	font-size: 2em;
+	text-align: justify;
+	margin-top: 1em;
+}
+
+/*  reference: https://codepen.io/mburnette/pen/LxNxNg;
+
+	edited to make it smaller
+ */
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	margin-top: .1em;
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 1.5em;
+	height: 1em;
+	background: grey;
+	display: block;
+	border-radius: 1em;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	width: .9em;
+	height: .9em;
+	background: #fff;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: #bada55;
+}
+
+input:checked + label:after {
+	left: calc(100% - 1px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 1.30em;
+}
+
+.btn_link{
+	background:none!important;
+	border:none; 
+	padding:0!important;
+	color:grey;
+	cursor:pointer;
+
+}
+
+
+/*----------------------------------------------------*/
