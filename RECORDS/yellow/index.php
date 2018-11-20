@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IPAMS</title>
 
-	<link rel="stylesheet" type="text/css" href="./../CSS/styles.css">
-	<link rel="stylesheet" type="text/css" href="./../CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/styles.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/bootstrap.css">
 	
 	
 
@@ -17,6 +17,10 @@
 <!-- this is the main template for IPAMS -->
 
 <body>
+	<?php
+		include_once './../../php/session.php';
+	?>
+
 	<!-- main container -->
 	<div class="h-100 w-100 ">
 		
@@ -134,7 +138,7 @@
 
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Green"><div class="rad-button" style="background-color:white; border-color:#009cdf"></div></a>
+														<a href="/Records/Blue"><div class="rad-button" style="background-color:white; border-color:#009cdf"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">conference</h4>
@@ -142,7 +146,7 @@
 												</div>
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Yellow"><div class="rad-button" style=" background-color:white; border-color:#ffb900"></div></a>
+														<div class="rad-button" style=" background-color:#ffb900; border-color:#ffb900"></div>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">publication</h4>
@@ -160,7 +164,7 @@
 												</div>
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<div class="rad-button" style=" background-color:#973999; border-color:#973999"></div>
+														<a href="/Records/Purple"><div class="rad-button" style=" background-color:white; border-color:#973999"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">collaboration</h4>
@@ -189,11 +193,11 @@
 									<div class="col-lg-1 h-100">
 										<div class="row h-100">
 											<div class="col-lg-8"></div>
-											<div class="col-lg-4 test h-100" style="background-color:#973999"></div>
+											<div class="col-lg-4 test h-100" style="background-color:#ffb900"></div>
 										</div>
 									</div>
-									<div class="col-lg-11 test h-100" style="background-color:#973999">
-										<h1 class="record-header">COLLABORATION</h1>
+									<div class="col-lg-11 test h-100" style="background-color:#ffb900">
+										<h1 class="record-header">PUBLICATION</h1>
 									</div>
 								</div>
 								<!-- end header -->
@@ -202,32 +206,45 @@
 								<div class="row " style="height:80%">
 									<div class="col-lg-1 pale h-100"></div>
 									<div class="col-lg-11 pale h-15">
+										<h1 class="mont-font">
+											<?php
+												
+												include_once './../../php/connect.php';
 
+												include './../../php/get_publication.php';
+
+												echo $publication_name;
+
+											?>
+										</h1>
 										<table class="table table-striped" style="background-color:#ecece9; margin-top:5em;">
-											<tr style="background-color: #973999;color:white;">
-												<th>OTHER RESEARCHERS</th>
-												<th>INSTITUTION</th>
-												<th>TYPE</th>
+											<tr>
+												<th style="background-color: #ffb900;color:white; width:40%">ISBN</th>
+												<td style="background-color:#f7df6c"><?php echo $isbn ?> </td>
+
 											</tr>
 											<tr>
-												<td>Adrian T. Arabes</td>
-												<td>University of Cebu</td>
-												<td>Type</td>
+												<th>ISSN</th>
+												<td style="background-color:white">--</td>
+
 											</tr>
 											<tr>
-												<td></td>
-												<td></td>
-												<td></td>
+												<th style="background-color: #ffb900;color:white; width:40%">ISI</th>
+												<td style="background-color:#f7df6c">--</td>
+
 											</tr>
+											<tr>
+												<th>LEVEL</th>
+												<td style="background-color:white"><?php echo $published_level ?></td>
 
+											</tr>
+											<tr>
+												<th style="background-color: #ffb900;color:white; width:40%">YEAR PUBLISHED</th>
+												<td style="background-color:#f7df6c"><?php echo $year_published ?></td>
 
-											
-
+											</tr>
 
 										</table>
-
-
-
 
 
 
@@ -238,6 +255,7 @@
 							</div>
 
 						</div>
+
 
 
 

@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IPAMS</title>
 
-	<link rel="stylesheet" type="text/css" href="./../CSS/styles.css">
-	<link rel="stylesheet" type="text/css" href="./../CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/styles.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/bootstrap.css">
 	
 	
 
@@ -15,6 +15,19 @@
 </head>
 
 <!-- this is the main template for IPAMS -->
+
+<body>
+	<?php 
+
+		include_once './../../php/session.php';
+    	include_once './../../php/connect.php';
+
+
+	 
+
+
+
+    ?>
 
 <body>
 	<!-- main container -->
@@ -75,6 +88,7 @@
 					<div class="col-lg-12 h-100">
 						
 
+
 						<div class="row h-100">
 
 							<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome/css/all.css" />
@@ -117,7 +131,7 @@
 
 												<div class="row h-15 " style="margin-top:1em;">
 													<div class="col-lg-1  h-100" align="center">
-														<div class="rad-button" style=" background-color:#df3737; border-color:#df3737;"></div>
+														<a href="/Records/Red"><div class="rad-button" style=" background-color:white; border-color:#df3737;"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style=" font-size:16px;margin-top:1px">title & abstract</h4>
@@ -126,7 +140,7 @@
 
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Orange"	><div class="rad-button" style=" background-color:white; border-color:#f78200"></div></a>
+														<div class="rad-button" style=" background-color:#f78200; border-color:#f78200"></div>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:1px">authors & categories</h4>
@@ -154,7 +168,7 @@
 													<div class="col-lg-1  h-100" align="center">
 														<a href="/Records/Green"><div class="rad-button" style=" background-color:white; border-color:#5ebd3e"></div></a>
 													</div>
-													<div class="col-lg-9 h-100">	
+													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">budget</h4>
 													</div>
 												</div>
@@ -170,14 +184,13 @@
 
 
 											</div>
-											<!-- end radio -->
 
 											<div class="row" style="margin-top:10em; margin-left:2em; width:8em; height:2em" align="center">
 												<a href="/home" style="color:dimgray"><h4>logout</h4></a>
 											</div>
 
 										</div>
-										</div>
+									</div>
 									<!--  -->
 
 								</div>
@@ -190,46 +203,78 @@
 									<div class="col-lg-1 h-100">
 										<div class="row h-100">
 											<div class="col-lg-8"></div>
-											<div class="col-lg-4 test h-100" style="background-color:#e23828"></div>
+											<div class="col-lg-4 test h-100" style="background-color:#f78200"></div>
 										</div>
 									</div>
-									<div class="col-lg-11 test h-100" style="background-color:#e23828">
-										<h1 class="record-header">TITLE & ABSTRACT</h1>	
+									<div class="col-lg-11 test h-100" style="background-color:#f78200">
+										<h1 class="record-header">AUTHORS & CATEGORIES</h1>
 									</div>
 								</div>
 								<!-- end header -->
-								
 								<!-- content -->
 
 								<div class="row " style="height:80%">
 									<div class="col-lg-1 pale h-100"></div>
 									<div class="col-lg-11 pale h-15">
-										<h1 class="mont-font">Case Study Template</h1>
-									</div>
-									<div class="col-lg-11 h-15 pale">
-										<h3 id="year-accomplished"> YEAR ACCOMPLISHED: 2011</h3>
+										<h1 class="mont-font">AUTHORS:</h1>
+										<table class="table table-striped" style="background-color:#ecece9">
+											<tr style="background-color: #f78200;color:white;">
+												<th style="width:50%">NAME</th>
+												<th>ROLE</th>
+											</tr>
+											<tr>
+												<td>
+													<?php 
+														include_once "./../../php/get_all_authors.php";
+														echo $author_name[0];
+													?>
+													
+												</td>
+												<td><?php echo $author_role?></td>
+											</tr>
+										
+										
+										</table>
+										<h1 class="mont-font">CATEGORIES:</h1>
+										<table class="table table-striped" style="background-color:#ecece9">
+											<tr style="background-color: #f78200;color:white;">
+												<th style="width:50%;">CLASS</th>
+												<th>PSCED</th>
+											</tr>
+											<tr>
+												<td>
+													<?php include_once "./../../php/get_categories.php";
+														echo $classification_name;
+													?>
+												</td>
+												<td>
+													<?php
+														echo $psced_classification;
+													?>
+												</td>
+											</tr>
+										
+									
+										</table>
 									</div>
 
-									<div class="col-lg-11" style="height:70%;">
-										<h4>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate dictum tortor vel porta. Maecenas tortor ipsum, imperdiet ut maximus at, mattis a orci. Nam id mi tellus. Curabitur eu ultrices lectus, vitae pellentesque elit. Mauris porttitor ligula eget odio rutrum, sed elementum elit mattis. Mauris efficitur sem mi, et feugiat odio interdum non. Etiam vitae porta dui, ut cursus diam. Suspendisse mauris sem, lobortis et porta sed, maximus sed ante. Mauris eu lectus in libero maximus scelerisque. Praesent dictum dictum orci a maximus. Curabitur dictum porta quam, eget gravida turpis rhoncus sed.
-										</h4>
-										<h4 style="margin-top:1em;">
-											Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce tortor libero, feugiat sit amet mauris et, aliquet sodales est. In ac ultrices felis. Praesent et massa orci. Sed a felis massa. Maecenas orci augue, porta vel rutrum eget, pretium vitae lacus. Nulla quis velit sed metus gravida euismod. Suspendisse sed erat non eros ultricies euismod. Nulla sed facilisis erat, at tincidunt sem. Nam facilisis vel risus et ornare. Curabitur porttitor turpis tellus, ut placerat orci convallis nec. Vivamus arcu ex, tempus vitae tincidunt ac, viverra a felis. Curabitur laoreet congue urna nec bibendum. Pellentesque fermentum ultricies elit, a fringilla ligula eleifend vitae. Proin sit amet lorem tempor, fringilla dolor nec, facilisis nunc.
-										</h4>
+									
 
-									</div>
+								
+										
+
+
+
+
+
 
 								</div>
 
-								<!-- -->
-
-
-
-
 							</div>
-
 						</div>
+
+
+
 
 					</div>
 

@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IPAMS</title>
 
-	<link rel="stylesheet" type="text/css" href="./../CSS/styles.css">
-	<link rel="stylesheet" type="text/css" href="./../CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/styles.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/bootstrap.css">
 	
 	
 
@@ -15,6 +15,9 @@
 </head>
 
 <!-- this is the main template for IPAMS -->
+<?php
+	include_once './../../php/session.php';
+?>
 
 <body>
 	<!-- main container -->
@@ -74,8 +77,6 @@
 				<div id="content" class="row h-100">
 					<div class="col-lg-12 h-100">
 						
-
-
 						<div class="row h-100">
 
 							<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome/css/all.css" />
@@ -127,15 +128,16 @@
 
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<div class="rad-button" style=" background-color:#f78200; border-color:#f78200"></div>
+														<a href="/Records/Orange"><div class="rad-button" style=" background-color:white; border-color:#f78200"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:1px">authors & categories</h4>
 													</div>
 												</div>
+
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Blue"><div class="rad-button" style="background-color:white; border-color:#009cdf"></div></a>
+														<div class="rad-button" style="background-color:#009cdf; border-color:#009cdf"></div>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">conference</h4>
@@ -190,11 +192,11 @@
 									<div class="col-lg-1 h-100">
 										<div class="row h-100">
 											<div class="col-lg-8"></div>
-											<div class="col-lg-4 test h-100" style="background-color:#f78200"></div>
+											<div class="col-lg-4 test h-100" style="background-color:#009cdf"></div>
 										</div>
 									</div>
-									<div class="col-lg-11 test h-100" style="background-color:#f78200">
-										<h1 class="record-header">AUTHORS & CATEGORIES</h1>
+									<div class="col-lg-11 test h-100" style="background-color:#009cdf">
+										<h1 class="record-header">CONFERENCE</h1>
 									</div>
 								</div>
 								<!-- end header -->
@@ -203,47 +205,37 @@
 								<div class="row " style="height:80%">
 									<div class="col-lg-1 pale h-100"></div>
 									<div class="col-lg-11 pale h-15">
-										<h1 class="mont-font">AUTHORS:</h1>
-										<table class="table table-striped" style="background-color:#ecece9">
-											<tr style="background-color: #f78200;color:white;">
-												<th style="width:50%">NAME</th>
-												<th>ROLE</th>
-											</tr>
-											<tr>
-												<td>Alien B. Navarez</td>
-												<td>A - Researcher</td>
-											</tr>
-											<tr>
-												<td>Margie Mae Dosdos</td>
-												<td>A - Researcher</td>
-											</tr>
-											<tr>
-												<td></td>
-												<td></td>
-											</tr>
-										</table>
-										<h1 class="mont-font">CATEGORIES:</h1>
-										<table class="table table-striped" style="background-color:#ecece9">
-											<tr style="background-color: #f78200;color:white;">
-												<th style="width:50%;">CLASS</th>
-												<th>PSCED</th>
-											</tr>
-											<tr>
-												<td>A - Applied Research</td>
-												<td>54 - Engineering and Technology</td>
-											</tr>
-											<tr>
-												<td></td>
-												<td></td>
-											</tr>
-									
-										</table>
-									</div>
+										<h1 class="mont-font">
 
-									
+											<?php
+												
+												include_once './../../php/connect.php';
 
-								
+												include './../../php/get_conference.php';
+
+												echo $conference_title;
+
+											?>
+										</h1>
+										<table class="table table-striped" style="background-color:#ecece9; margin-top:5em;">
+											<tr style="background-color: #009cdf;color:white;">
+												<th width="20%">LEVEL</th>
+												<th width="30%">DATE</th>
+												<th>VENUE</th>
+											</tr>
+											<tr>
+												<td><?php echo $conference_level?></td>
+												<td><?php echo $conference_date?></td>
+												<td><?php echo $conference_venue?></td>
+											</tr>
 										
+								
+										</table>
+									
+
+
+
+
 
 
 
@@ -255,7 +247,7 @@
 							</div>
 						</div>
 
-
+						</div>
 
 
 					</div>

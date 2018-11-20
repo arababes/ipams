@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IPAMS</title>
 
-	<link rel="stylesheet" type="text/css" href="./../CSS/styles.css">
-	<link rel="stylesheet" type="text/css" href="./../CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/styles.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/bootstrap.css">
 	
 	
 
@@ -17,6 +17,28 @@
 <!-- this is the main template for IPAMS -->
 
 <body>
+	<?php 
+
+		include_once './../../php/session.php';
+    	include_once './../../php/connect.php';
+
+		if (isset($_GET['record'])) {
+       		$record = $_GET['record'];
+	   		$_SESSION['record'] = $record;
+	    } 
+	    elseif (isset($_SESSION['record'])) {
+
+	    	$record = $_SESSION['record'];
+	    }
+	    else {
+	        $record = 1;
+	    }	 
+
+
+
+
+
+    ?>
 	<!-- main container -->
 	<div class="h-100 w-100 ">
 		
@@ -74,6 +96,7 @@
 				<div id="content" class="row h-100">
 					<div class="col-lg-12 h-100">
 						
+
 						<div class="row h-100">
 
 							<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome/css/all.css" />
@@ -116,7 +139,7 @@
 
 												<div class="row h-15 " style="margin-top:1em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Red"><div class="rad-button" style=" background-color:white; border-color:#df3737;"></div></a>
+														<div class="rad-button" style=" background-color:#df3737; border-color:#df3737;"></div>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style=" font-size:16px;margin-top:1px">title & abstract</h4>
@@ -125,16 +148,15 @@
 
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Orange"><div class="rad-button" style=" background-color:white; border-color:#f78200"></div></a>
+														<a href="/Records/Orange"	><div class="rad-button" style=" background-color:white; border-color:#f78200"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:1px">authors & categories</h4>
 													</div>
 												</div>
-
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<div class="rad-button" style="background-color:#009cdf; border-color:#009cdf"></div>
+														<a href="/Records/Blue"><div class="rad-button" style="background-color:white; border-color:#009cdf"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">conference</h4>
@@ -154,7 +176,7 @@
 													<div class="col-lg-1  h-100" align="center">
 														<a href="/Records/Green"><div class="rad-button" style=" background-color:white; border-color:#5ebd3e"></div></a>
 													</div>
-													<div class="col-lg-9 h-100">
+													<div class="col-lg-9 h-100">	
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">budget</h4>
 													</div>
 												</div>
@@ -170,13 +192,14 @@
 
 
 											</div>
+											<!-- end radio -->
 
 											<div class="row" style="margin-top:10em; margin-left:2em; width:8em; height:2em" align="center">
 												<a href="/home" style="color:dimgray"><h4>logout</h4></a>
 											</div>
 
 										</div>
-									</div>
+										</div>
 									<!--  -->
 
 								</div>
@@ -189,60 +212,63 @@
 									<div class="col-lg-1 h-100">
 										<div class="row h-100">
 											<div class="col-lg-8"></div>
-											<div class="col-lg-4 test h-100" style="background-color:#009cdf"></div>
+											<div class="col-lg-4 test h-100" style="background-color:#e23828"></div>
 										</div>
 									</div>
-									<div class="col-lg-11 test h-100" style="background-color:#009cdf">
-										<h1 class="record-header">CONFERENCE</h1>
+									<div class="col-lg-11 test h-100" style="background-color:#e23828">
+										<h1 class="record-header">TITLE & ABSTRACT</h1>	
 									</div>
 								</div>
 								<!-- end header -->
+								
 								<!-- content -->
 
 								<div class="row " style="height:80%">
 									<div class="col-lg-1 pale h-100"></div>
 									<div class="col-lg-11 pale h-15">
 										<h1 class="mont-font">
-											2011 INTERNATIONAL ASIA PACIFIC BUSINESS
-											INNOVATION AND TECHNOLOGY MANAGEMENT
-											CONFERENCE
+											<?php 
+											$sql = "SELECT * FROM records WHERE record_id = ".$record;
+
+											 $res_data = mysqli_query($connect,$sql);
+
+											 while($row = mysqli_fetch_array($res_data)){
+											 	echo strtoupper($row['title']);
+											 	$year = $row['year_accomplished'];
+
+											 }
+										
+
+
+
+											?>
+											
 										</h1>
-										<table class="table table-striped" style="background-color:#ecece9; margin-top:5em;">
-											<tr style="background-color: #009cdf;color:white;">
-												<th>LEVEL</th>
-												<th>DATE</th>
-												<th>VENUE</th>
-											</tr>
-											<tr>
-												<td>I - International</td>
-												<td>July 11, 2011 - July 12, 2012</td>
-												<td>Dalian University of Technology, China</td>
-											</tr>
-											<tr>
-												<td></td>
-												<td></td>
-												<td></td>
-											</tr>
-								
-										</table>
-									
+									</div>
+									<div class="col-lg-11 h-15 pale">
+										<h3 id="year-accomplished"> YEAR ACCOMPLISHED: <?php  echo $year?></h3>
+									</div>
 
+									<div class="col-lg-11" style="height:70%;">
+										<h4>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate dictum tortor vel porta. Maecenas tortor ipsum, imperdiet ut maximus at, mattis a orci. Nam id mi tellus. Curabitur eu ultrices lectus, vitae pellentesque elit. Mauris porttitor ligula eget odio rutrum, sed elementum elit mattis. Mauris efficitur sem mi, et feugiat odio interdum non. Etiam vitae porta dui, ut cursus diam. Suspendisse mauris sem, lobortis et porta sed, maximus sed ante. Mauris eu lectus in libero maximus scelerisque. Praesent dictum dictum orci a maximus. Curabitur dictum porta quam, eget gravida turpis rhoncus sed.
+										</h4>
+										<h4 style="margin-top:1em;">
+											Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce tortor libero, feugiat sit amet mauris et, aliquet sodales est. In ac ultrices felis. Praesent et massa orci. Sed a felis massa. Maecenas orci augue, porta vel rutrum eget, pretium vitae lacus. Nulla quis velit sed metus gravida euismod. Suspendisse sed erat non eros ultricies euismod. Nulla sed facilisis erat, at tincidunt sem. Nam facilisis vel risus et ornare. Curabitur porttitor turpis tellus, ut placerat orci convallis nec. Vivamus arcu ex, tempus vitae tincidunt ac, viverra a felis. Curabitur laoreet congue urna nec bibendum. Pellentesque fermentum ultricies elit, a fringilla ligula eleifend vitae. Proin sit amet lorem tempor, fringilla dolor nec, facilisis nunc.
+										</h4>
 
-
-
-
-
-
-
-
+									</div>
 
 								</div>
 
+								<!-- -->
+
+
+
+
 							</div>
-						</div>
 
 						</div>
-
 
 					</div>
 

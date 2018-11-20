@@ -58,7 +58,7 @@
 						<a class="h-100 w-100 pale nav-button" href="user.php">
 							<div class="col-lg-3 h-100 no-padding nav-button"><h3 style="margin-top:30%">home</h3></div>
 						</a>
-						<a class="h-100 w-100 pale nav-button" href="./../index/index.php">
+						<a class="h-100 w-100 pale nav-button" href="./../../RECORDS/index.php">
 							<div class="col-lg-3 h-100 no-padding nav-button"><h3  style="margin-top:30%">records</h3></div>
 						</a>
 						<a class="h-100 w-100 pale nav-button" href="/graph">

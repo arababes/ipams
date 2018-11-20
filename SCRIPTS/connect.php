@@ -10,9 +10,12 @@ $year=$year2=$budalloc=0;
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+$connect = null;
 
 try{
-    $connect=mysqli_connect($host,$user,$password,$database);
+	
+    	$connect=mysqli_connect($host,$user,$password,$database);
+    	
 }catch(Exception $ex){
     echo 'Error';
 }

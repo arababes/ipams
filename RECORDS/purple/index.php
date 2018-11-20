@@ -5,8 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IPAMS</title>
 
-	<link rel="stylesheet" type="text/css" href="./../CSS/styles.css">
-	<link rel="stylesheet" type="text/css" href="./../CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/styles.css">
+	<link rel="stylesheet" type="text/css" href="./../../CSS/bootstrap.css">
 	
 	
 
@@ -17,6 +17,18 @@
 <!-- this is the main template for IPAMS -->
 
 <body>
+
+	<?php 
+
+		include_once './../../php/session.php';
+    	include_once './../../php/connect.php';
+
+
+	 
+
+
+
+    ?>
 	<!-- main container -->
 	<div class="h-100 w-100 ">
 		
@@ -135,7 +147,7 @@
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
 														<a href="/Records/Green"><div class="rad-button" style="background-color:white; border-color:#009cdf"></div></a>
-						</div>
+													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">conference</h4>
 													</div>
@@ -152,7 +164,7 @@
 
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<div class="rad-button" style=" background-color:#5ebd3e; border-color:#5ebd3e"></div>
+														<a href="/Records/Green"><div class="rad-button" style=" background-color:white; border-color:#5ebd3e"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">budget</h4>
@@ -160,7 +172,7 @@
 												</div>
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Purple"><div class="rad-button" style=" background-color:white; border-color:#973999"></div></a>
+														<div class="rad-button" style=" background-color:#973999; border-color:#973999"></div>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">collaboration</h4>
@@ -189,11 +201,11 @@
 									<div class="col-lg-1 h-100">
 										<div class="row h-100">
 											<div class="col-lg-8"></div>
-											<div class="col-lg-4 test h-100" style="background-color:#5ebd3e"></div>
+											<div class="col-lg-4 test h-100" style="background-color:#973999"></div>
 										</div>
 									</div>
-									<div class="col-lg-11 test h-100" style="background-color:#5ebd3e">
-										<h1 class="record-header">BUDGET</h1>
+									<div class="col-lg-11 test h-100" style="background-color:#973999">
+										<h1 class="record-header">COLLABORATION</h1>
 									</div>
 								</div>
 								<!-- end header -->
@@ -204,32 +216,40 @@
 									<div class="col-lg-11 pale h-15">
 
 										<table class="table table-striped" style="background-color:#ecece9; margin-top:5em;">
-											<tr style="background-color: #5ebd3e;color:white;">
+											<tr style="background-color: #973999;color:white;">
+												<th>OTHER RESEARCHERS</th>
+												<th>INSTITUTION</th>
 												<th>TYPE</th>
-												<th>BUDGET ALLOCATION</th>
-												<th>FUNDING SOURCE</th>
 											</tr>
 											<tr>
-												<td>L - Local</td>
-												<td>P200,000.00</td>
-												<td>Dalian University of Technology, China</td>
+												<td width="40%">
+													<?php 
+														include_once "./../../php/get_collaborator.php";
+														echo $name;
+													?>
+													
+												</td>
+												<td width="40%">
+													<?php 
+														echo $institution;
+													?>
+														
+												</td>
+												<td>
+													<?php 	
+														echo $collaboration_type;
+													?>
+														
+												</td>
 											</tr>
-											<tr>
-												<td>I - International</td>
-												<td>P500,000.00</td>
-												<td>United Nations South East Asian Division</td>
-											</tr>
-
 										
-											<tr>
-												<th colspan="2" style="background-color: #5ebd3e;color:white;">TOTAL</th>
-												<td style="background-color:#c2edb4">P700,000.00</td>
-												
-											</tr>
+
+
+											
 
 
 										</table>
-									
+
 
 
 
@@ -242,7 +262,6 @@
 							</div>
 
 						</div>
-
 
 
 
