@@ -1,5 +1,5 @@
 <?php
-	include("./../../PHP/indexdelete.php");
+	include("./../PHP/indexdelete.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,8 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IPAMS</title>
 
-	<link rel="stylesheet" type="text/css" href="./../../CSS/styles.css">
-	<link rel="stylesheet" type="text/css" href="./../../CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./../CSS/styles.css">
+	<link rel="stylesheet" type="text/css" href="./../CSS/bootstrap.css">
 	
 
 	
@@ -59,7 +59,7 @@
 						<a class="h-100 w-100 pale nav-button" href="/home">
 							<div class="col-lg-3 h-100 no-padding nav-button"><h3 style="margin-top:30%">home</h3></div>
 						</a>
-						<a class="h-100 w-100 pale nav-button" href="/records">
+						<a class="h-100 w-100 pale nav-button" href="./../../RECORDS/index.php">
 							<div class="col-lg-3 h-100 no-padding nav-button"><h3  style="margin-top:30%">records</h3></div>
 						</a>
 						<a class="h-100 w-100 pale nav-button" href="/graph">
@@ -107,10 +107,15 @@
 											</div>
 											<div style="width:10em; height:3em;margin-top:1em;margin-left:1em;text-align:center"><h4>Megumin</h4></div>
 										</div>
-
+										<?php
+							        	
+										include_once './../php/logout.php';
+										?>
+										<form method="POST">
 										<div class="row" style="margin-top:32.65em; margin-left:2em; width:8em; height:2em" align="center">
-											<a href="/home" style="color:dimgray"><h4>logout</h4></a>
+										<button type="submit" name="logout" class="btn_link"><h4>logout</h4></button>
 										</div>
+										</form>
 									</div>
 									<!---->
 
@@ -153,16 +158,14 @@
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="col-lg-1  h-100">
 									<form method="POST">
-										
 										<button name="delete" class="rounded extras delete-button">
 											DELETE
 										</button>
 									</form>
 									</div>
-
 									<div class="col-lg-3  h-100">
 										<button class="rounded extras add-button">
 											<i class="fas fa-plus"></i>
@@ -190,8 +193,8 @@
 
 							        <?php
 							        	
-										include_once './../../PHP/connect.php';
-										
+							            include_once './../php/connect.php';
+
 							            $sql2 = "SELECT * FROM classifications";
 
 							            $results = mysqli_query($connect,$sql2);
@@ -239,14 +242,14 @@
 							            ?>  
 							            <form action="get_selected_records.php" method="get">
 							            <?php
+
 							            while($row = mysqli_fetch_array($res_data)){
 							            	
 							            	$count++;
-											echo '<tr><th> <input type="checkbox" name="idselected[]" value="';
-											echo $row['record_id'];
-											echo '" id="'  ;
+							                echo '<tr><th> <input type="checkbox" id="'  ;
 							                echo $row['record_id'];
-							                echo '" /><label  for="' ;
+							                
+							                echo '" onclick="getIds()" /><label  for="' ;
 							                echo $row['record_id'];
 							                echo '">Toggle</label> </th>';
 							                //title
@@ -284,7 +287,7 @@
 
 							            mysqli_close($connect);
 	       
-							    	include_once "../../PHP/paginate.php";
+							    	include_once "../php/paginate.php";
 							        
 							    ?>
 
@@ -303,6 +306,7 @@
 						</div>
 
 						<script src="./../fonts/font-awesome/js/all.js"></script>
+						<script src="./../Scripts/get_checkbox_values.js"></script>
 						<script src="./../Scripts/records.js"></script>
 					</div>
 

@@ -1,6 +1,6 @@
 <?php
 
-include_once './../../PHP/connect.php';
+include_once 'connect.php';
 
 if(isset($_POST['logout']))
 {
