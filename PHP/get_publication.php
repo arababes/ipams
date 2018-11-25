@@ -1,6 +1,7 @@
 
 <?php
-
+       include "session.php";
+       include "connect.php";
  
 	$record = $_SESSION['record'];
 
@@ -21,6 +22,8 @@
     while($record = mysqli_fetch_assoc($results)) {
            $publication_name = $record['publication_name'];
            $isbn = $record['isbn'];
+           $isi=$record['isi'];
+           $issn=$record['issn'];
            $year_published = $record['year_published'];
            $published_level_id = $record['published_level_id'];
     }

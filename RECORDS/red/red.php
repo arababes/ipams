@@ -1,3 +1,20 @@
+<?php
+	session_start();
+	include_once '../../php/connect.php';
+
+	if (isset($_GET['record'])) {
+		$record = $_GET['record'];
+		$_SESSION['record'] = $record;
+	} 
+	elseif (isset($_SESSION['record'])) {
+
+		$record = $_SESSION['record'];
+	}
+	else {
+		$record = 1;
+	}	 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +32,6 @@
 </head>
 
 <!-- this is the main template for IPAMS -->
-<?php
-	include_once './../../php/session.php';
-?>
 
 <body>
 	<!-- main container -->
@@ -77,6 +91,7 @@
 				<div id="content" class="row h-100">
 					<div class="col-lg-12 h-100">
 						
+
 						<div class="row h-100">
 
 							<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome/css/all.css" />
@@ -105,11 +120,9 @@
 											<div style="width:10em; height:3em;margin-top:1em;margin-left:1em;text-align:center"><h4>Megumin</h4></div>
 											<!--	-->
 											<div style="width:10em; height:2em;margin-left:1em;text-align:center">
-											<form action="blue.php" method="get">
-												<button id="edit" name="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
-													EDIT
+												<button id="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
+													SAVE
 												</button>
-												</form>
 											</div>
 											<div style="width:10em; margin-top:.2em; height:2em;margin-left:1em;text-align:center">
 												<button id="delete" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px; text-align:left; padding-left:1em;border:none">
@@ -121,7 +134,7 @@
 
 												<div class="row h-15 " style="margin-top:1em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Red"><div class="rad-button" style=" background-color:white; border-color:#df3737;"></div></a>
+														<div class="rad-button" style=" background-color:#df3737; border-color:#df3737;"></div>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style=" font-size:16px;margin-top:1px">title & abstract</h4>
@@ -130,16 +143,15 @@
 
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Orange"><div class="rad-button" style=" background-color:white; border-color:#f78200"></div></a>
+														<a href="../orange/orange.php"	><div class="rad-button" style=" background-color:white; border-color:#f78200"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:1px">authors & categories</h4>
 													</div>
 												</div>
-
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<div class="rad-button" style="background-color:#009cdf; border-color:#009cdf"></div>
+														<a href="../blue/blue.php"><div class="rad-button" style="background-color:white; border-color:#009cdf"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">conference</h4>
@@ -147,7 +159,7 @@
 												</div>
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Yellow"><div class="rad-button" style=" background-color:white; border-color:#ffb900"></div></a>
+														<a href="../yellow/yellow.php"><div class="rad-button" style=" background-color:white; border-color:#ffb900"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">publication</h4>
@@ -157,15 +169,15 @@
 
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Green"><div class="rad-button" style=" background-color:white; border-color:#5ebd3e"></div></a>
+														<a href="green.php"><div class="rad-button" style=" background-color:white; border-color:#5ebd3e"></div></a>
 													</div>
-													<div class="col-lg-9 h-100">
+													<div class="col-lg-9 h-100">	
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">budget</h4>
 													</div>
 												</div>
 												<div class="row h-15 " style="margin-top:.5em;">
 													<div class="col-lg-1  h-100" align="center">
-														<a href="/Records/Purple"><div class="rad-button" style=" background-color:white; border-color:#973999"></div></a>
+														<a href="purple.php"><div class="rad-button" style=" background-color:white; border-color:#973999"></div></a>
 													</div>
 													<div class="col-lg-9 h-100">
 														<h4 class="mont-fon-reg" style="font-size:16px;margin-top:8px">collaboration</h4>
@@ -175,13 +187,14 @@
 
 
 											</div>
+											<!-- end radio -->
 
 											<div class="row" style="margin-top:10em; margin-left:2em; width:8em; height:2em" align="center">
 												<a href="/home" style="color:dimgray"><h4>logout</h4></a>
 											</div>
 
 										</div>
-									</div>
+										</div>
 									<!--  -->
 
 								</div>
@@ -194,81 +207,56 @@
 									<div class="col-lg-1 h-100">
 										<div class="row h-100">
 											<div class="col-lg-8"></div>
-											<div class="col-lg-4 test h-100" style="background-color:#009cdf"></div>
+											<div class="col-lg-4 test h-100" style="background-color:#e23828"></div>
 										</div>
 									</div>
-									<div class="col-lg-11 test h-100" style="background-color:#009cdf">
-										<h1 class="record-header">CONFERENCE</h1>
+									<div class="col-lg-11 test h-100" style="background-color:#e23828">
+										<h1 class="record-header">TITLE & ABSTRACT</h1>	
 									</div>
 								</div>
 								<!-- end header -->
+								
 								<!-- content -->
-
+							<form method="POST" action=<?php if(isset($_POST['addrecord'])){ echo "./../orange/orange.php";}else if(isset($_GET['edit'])){ echo "../../php/update_record.php";}?>>
 								<div class="row " style="height:80%">
 									<div class="col-lg-1 pale h-100"></div>
 									<div class="col-lg-11 pale h-15">
-										
-
-											<?php
-												
-												include_once './../../php/connect.php';
-
-												include './../../php/get_conference.php';
-
-												
-
-											?>
 									
-										<table class="table table-striped" style="background-color:#ecece9; margin-top:5em;">
-											<tr style="background-color: #009cdf;color:white;">
-												<th width="15%">LEVEL</th>
-												<th width="35%">TITLE</th>
-												<th width="15%">DATE</th>
-												<th width="30%">VENUE</th>
-											</tr>
-											
-											<?php
-												for ($traverser = 0; $traverser<$count; $traverser++){
-													echo "<tr><td>";
-													echo $conference_level[$traverser];
-													echo "</td><td>";
-													echo $conference_title[$traverser];
-													echo "</td><td>";
-													echo $conference_date[$traverser];
-													echo "</td><td>";
-													echo $conference_venue[$traverser];
-													echo "</td></tr>";
-
-												}
-
-												if( $count == 0){
-													echo "<tr></tr>";
-												}
-
-
-											?>
-											
-										
+									<?php 
 								
-										</table>
-									
+											$sql = "SELECT * FROM records WHERE record_id = ".$record;
 
+											 $res_data = mysqli_query($connect,$sql);
 
+											 while($row = mysqli_fetch_array($res_data)){
+											 	$title=$row['title'];
+											 	$year = $row['year_accomplished'];
+											 }
+											?>
 
+										<input id="abstract-title" type="text" name="title" value="<?php if(isset($_GET['edit'])){ echo $title;}?>" class="mont-font">	
+									</div>
+									<div class="col-lg-11 h-15 pale">
+										<h3 id="year-accomplished"> YEAR ACCOMPLISHED: <input type="text" value="<?php if(isset($_GET['edit'])){echo $year;}?>" class="transparent" name="year"> </h3>
+									</div>
+									<input type="hidden" name="id" value="<?php if(isset($_GET['edit'])){echo $record;} else{echo "";}?>">
 
-
-
-
-
-
+									<div class="col-lg-11" style="height:70%;">
+										<!--<input id="abstract-edit" type="text" name="" class="mont-font-reg">-->
+									</div>
+									<input type="<?php if(isset($_GET['edit'])){echo 'hidden';}else{echo 'submit';}?>" class="btn" name="nextred" value="Next">
+										<input type="<?php if(isset($_GET['edit'])){echo 'submit';}else{echo 'hidden';}?>" class="btn" name="update" value="Update">
 
 								</div>
+							</form>
+								<!-- -->
+
+
+
 
 							</div>
-						</div>
 
 						</div>
-
 
 					</div>
 

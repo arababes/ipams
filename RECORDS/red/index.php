@@ -125,9 +125,11 @@
 											<div style="width:10em; height:3em;margin-top:1em;margin-left:1em;text-align:center"><h4>Megumin</h4></div>
 											<!--	-->
 											<div style="width:10em; height:2em;margin-left:1em;text-align:center">
-												<button id="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
+											<form action="red.php" method="GET">
+												<button id="edit" name="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
 													EDIT
 												</button>
+											</form>
 											</div>
 											<div style="width:10em; margin-top:.2em; height:2em;margin-left:1em;text-align:center">
 												<button id="delete" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px; text-align:left; padding-left:1em;border:none">
@@ -227,6 +229,7 @@
 									<div class="col-lg-1 pale h-100"></div>
 									<div class="col-lg-11 pale h-15">
 										<h1 class="mont-font">
+
 											<?php 
 											$sql = "SELECT * FROM records WHERE record_id = ".$record;
 
@@ -237,10 +240,7 @@
 											 	$year = $row['year_accomplished'];
 
 											 }
-										
-
-
-
+									
 											?>
 											
 										</h1>

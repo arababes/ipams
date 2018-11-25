@@ -47,12 +47,15 @@
 
     $count = 0;
 
-
+    ?>  
+    <form action="get_selected_records.php" method="get">
+    <?php
     while($row = mysqli_fetch_array($res_data)){
     	
     	$count++;
         echo '<tr><th> <input type="checkbox" id="'  ;
         echo $row['record_id'];
+        
         echo '" /><label  for="' ;
         echo $row['record_id'];
         echo '">Toggle</label> </th>';
@@ -84,7 +87,10 @@
 
     for ($x = $count; $x < $no_of_records_per_page; $x++){
     	echo '<tr> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>';
-	}
+	}?>
+    
+    </form>
+    <?php
 
     mysqli_close($connect);
 ?>

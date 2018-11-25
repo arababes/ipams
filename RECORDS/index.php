@@ -167,10 +167,12 @@
 									</form>
 									</div>
 									<div class="col-lg-3  h-100">
-										<button class="rounded extras add-button">
+									<form action="red/red.php" method="POST">
+										<button class="rounded extras add-button" name="addrecord">
 											<i class="fas fa-plus"></i>
 											ADD RECORD
 										</button>
+										</form>
 									</div>
 
 								</div>

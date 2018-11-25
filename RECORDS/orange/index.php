@@ -117,10 +117,12 @@
 											<div style="width:10em; height:3em;margin-top:1em;margin-left:1em;text-align:center"><h4>Megumin</h4></div>
 											<!--	-->
 											<div style="width:10em; height:2em;margin-left:1em;text-align:center">
-												<button id="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
+											<form action="orange.php" method="get">
+												<button id="edit" name="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
 													EDIT
 												</button>
 											</div>
+											</form>
 											<div style="width:10em; margin-top:.2em; height:2em;margin-left:1em;text-align:center">
 												<button id="delete" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px; text-align:left; padding-left:1em;border:none">
 													DELETE
@@ -222,16 +224,25 @@
 												<th style="width:50%">NAME</th>
 												<th>ROLE</th>
 											</tr>
-											<tr>
-												<td>
-													<?php 
-														include_once "./../../php/get_all_authors.php";
-														echo $author_name[0];
-													?>
+											
+											
+											<?php 
+												include_once "./../../php/get_all_authorsv2.php";
+											 	for ($traverser = 0; $traverser<$count; $traverser++){
+
+												 	echo "<tr><td>";
+													echo $author_name[$traverser];
+													echo "</td><td>";
+													echo $author_role[$traverser];
+													echo "</td></tr>";
+
+												}
+										
+
+											?>
 													
-												</td>
-												<td><?php echo $author_role?></td>
-											</tr>
+												
+													
 										
 										
 										</table>

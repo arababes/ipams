@@ -106,9 +106,11 @@
 											<div style="width:10em; height:3em;margin-top:1em;margin-left:1em;text-align:center"><h4>Megumin</h4></div>
 											<!--	-->
 											<div style="width:10em; height:2em;margin-left:1em;text-align:center">
-												<button id="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
+											<form action="yellow.php" method="get"> 
+												<button id="edit" name="edit" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px;text-align:left; padding-left:1em;border:none">
 													EDIT
 												</button>
+											</form>
 											</div>
 											<div style="width:10em; margin-top:.2em; height:2em;margin-left:1em;text-align:center">
 												<button id="delete" class="rounded os-font" style="max-width:10em; max-height:2em; margin-left:0px; text-align:left; padding-left:1em;border:none">
@@ -225,12 +227,12 @@
 											</tr>
 											<tr>
 												<th>ISSN</th>
-												<td style="background-color:white">--</td>
+												<td style="background-color:white"><?php echo $issn?></td>
 
 											</tr>
 											<tr>
 												<th style="background-color: #ffb900;color:white; width:40%">ISI</th>
-												<td style="background-color:#f7df6c">--</td>
+												<td style="background-color:#f7df6c"><?php echo $isi?></td>
 
 											</tr>
 											<tr>
